@@ -1,0 +1,11 @@
+---
+steps:
+  - name: gcr.io/kaniko-project/executor:latest
+    args: 
+      - --cache=true
+      - --cache-ttl=168h
+      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/registry/wordcount:$COMMIT_SHA
+      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/registry/wordcount:latest
+
+substitutions:
+  _REGION: asia-northeast1
